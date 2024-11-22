@@ -6,7 +6,7 @@ if first != second and second != third and first != third:
     print(0)
 elif first == second == third:
     print(3)
-elif first == second or second == third or first == third:
+else:
     print(2)
 
 print('ещё разок!')
@@ -19,5 +19,5 @@ if first != second and second != third and first != third:
     print(0)
 elif first == second == third:
     print(3)
-elif first == second or second == third or first == third:
+else:
     print(2)
