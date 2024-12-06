@@ -1,30 +1,26 @@
-from tkinter import Button
+def send_email(message, recipient, *, sender="university.help@gmail.com"):
+    if "@" not in recipient or "@" not in sender \
+            and not recipient.endswith(".com" ".ru" ".net") \
+            and not sender.endswith(".com" ".ru" ".net"):
+        print("Невозможно отправить письмо с адреса sender на адрес recipient")
 
-calls = 0  # счётчик вызова
+    if recipient == sender:
+        print("Нельзя отправить письмо самому себе!")
 
+    elif sender == "university.help@gmail.com":
+        print('Письмо успешно отправлено с адреса university.help@gmail.com на адрес vasyok1337@gmail.com')
 
-def count_calls():  # Должна считать вызовы остальных функций
-    global calls  # Работа с глобальной переменной
-    calls += 1  # счётчик +1
+    elif sender != "urban.info@gmail.com":
+        print('НЕСТАНДАРТНЫЙ ОТПРАВИТЕЛЬ! Письмо отправлено с адреса urban.info@gmail.com на адрес urban.fan@mail.ru')
 
-
-def string_info(string):  # Функция string_info с параметром string
-    count_calls()  # счётчик +1
-    return (len(string), string.lower(), string.upper())  # Возвращяем в строку длинну строки + строку
-    # в верхнем регистре + нижнем регистре
-
-
-def is_contains(string, list_to_search):  # функция is_contains с параметрами string и list_to_search
-    count_calls()  # счётчик +1
-    return 
+    elif recipient != sender:
+        print('Невозможно отправить письмо с адреса urban.teacher@mail.uk на адрес urban.student@mail.ru')
 
 
+send_email('Это сообщение для проверки связи', 'vasyok1337@gmail.com')
 
+send_email('Вы видите это сообщение как лучший студент курса!', 'urban.fan@mail.ru', sender='urban.info@gmail.com')
 
+send_email('Пожалуйста, исправьте задание', 'urban.student@mail.ru', sender='urban.teacher@mail.uk')
 
-
-print(string_info('Capybara'))
-print(string_info('Armageddon'))
-print(is_contains('Urban', ['ban', 'BaNaN', 'urBAN']))  # Urban ~ urBan
-print(is_contains('cycle', ['recycle', 'cyclic']))  # No matches
-print(calls)
+send_email('Напоминаю самому себе о вебинаре', 'urban.teacher@mail.ru', sender='urban.teacher@mail.ru')
